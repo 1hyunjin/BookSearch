@@ -16,14 +16,14 @@ public class Book implements Serializable {
     private String author;
     private String title;
     private String coverURL;
+    private boolean like;
+    private boolean unlike;
 
     public String getOpenLibraryId() {
         return openLibraryId;
     }
 
-    public String getTitle() {
-        return title;
-    }
+    public String getTitle() { return title; }
 
     public String getAuthor() {
         return author;
@@ -32,6 +32,22 @@ public class Book implements Serializable {
     // Get medium sized book cover from covers API
     public String getCoverUrl() {
         return coverURL;
+    }
+
+    public boolean isLike() {
+        return like;
+    }
+
+    public boolean isUnlike() {
+        return unlike;
+    }
+
+    public void setLike(boolean like) {
+        this.like = like;
+    }
+
+    public void setUnlike(boolean unlike) {
+        this.unlike = unlike;
     }
 
     // Returns a Book given the expected JSON
@@ -80,5 +96,15 @@ public class Book implements Serializable {
             }
         }
         return books;
+    }
+
+    @Override
+    public String toString() {
+        return openLibraryId + " "
+                + author + " "
+                + title + " "
+                + coverURL + " "
+                + like + " "
+                + unlike + " ";
     }
 }
